@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+
+<div class = "ui main text container segment">
+    <div class = "huge header"> <%= blogs.Title %></div>
+    <div class = "ui top attached ">
+        <div class = "item">
+            <img class = "ui centered rounded image" src = " <%= blogs.Image %>">
+            <div class = "content">
+                <span> <%= blogs.Created.toDateString() %> </span>            
+            </div>
+            <div class = "description">
+                <p> <%- blogs.Body %></p>         <!-- The - sign in javascript allows the html tags content to be readed and so i user enters some html, itcan be applied-->
+            </div>
+            <a class = "ui orange basic button" href = "/blogs/<%= blogs._id%>/edit">Edit</a>
+            <form id = "delete" action = "/blogs/<%= blogs._id%>?_method=DELETE" method = "POST">
+                <button class = "ui red basic button">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
